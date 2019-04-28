@@ -1,0 +1,21 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+ 
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+
+  <div>Click on Verify to verify your acount</div>
+
+  <button class="btn" (click)="openVerifyModal()">Verify</button>
+
+  <div [ngClass]="verifyModal?  'show':'fade'">
+
+  <input type="text" [(ngModel)]="verificationCodeInput" (ngModelChange)="confirmVerification($event)" placeholder="Verication Code">
+  <p>{{verificationCodeInput}}</p>
+  <p>Time : {{timeToVerify}} </p>
+  <div (click)="resendOtp()"> Resend OTP</div>
+
+  <button [disabled]="!verify" (click)="ApprovedVerification()">Approve</button>
+</div>
+</div>
